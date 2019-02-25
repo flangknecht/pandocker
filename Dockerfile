@@ -1,6 +1,9 @@
-FROM haskell
+FROM debian:buster
 
-RUN cabal update && cabal install pandoc-2.5
+RUN apt update && apt install -y \
+		  pandoc \
+		  texlive-full \
+		  build-essential
 
 WORKDIR /pandoc
 
