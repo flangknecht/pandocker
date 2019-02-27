@@ -5,7 +5,9 @@ RUN apt update && apt install -y \
 		  texlive-full \
 		  latexmk \
 		  biber \
-		  build-essential
+		  build-essential \
+		  python-pip \
+		  plantuml \
+		&& pip install pandoc-plantuml-filter
 
 WORKDIR /pandoc
-
