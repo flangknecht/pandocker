@@ -1,13 +1,7 @@
-FROM debian:buster
+FROM flangknecht/pandocker:texlive
 
 RUN apt update && apt install -y \
-		  pandoc \
-		  texlive-full \
-		  latexmk \
-		  biber \
-		  build-essential \
-		  python-pip \
-		  plantuml \
-		&& pip install pandoc-plantuml-filter
+		  nodejs \
+		&& npm install --global mermaid-filter
 
 WORKDIR /pandoc
