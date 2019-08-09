@@ -1,13 +1,18 @@
-FROM debian
+FROM ubuntu
 
+ENV TZ=Europe/Berlin
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt install -y \
-		  pandoc \
 		  texlive-full \
 		  latexmk \
-		  biber \
-		  build-essential \
-		  python-pip \
+		  biber
+RUN apt install -y \
+          build-essential \
+		  python-pip
+RUN apt install -y \
+          build-essential \
+		  pandoc \
 		  plantuml \
-		&& pip install pandoc-plantuml-filter
+       && pip install pandoc-plantuml-filter
 
 WORKDIR /pandoc
